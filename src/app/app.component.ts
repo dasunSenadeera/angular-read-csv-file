@@ -13,9 +13,9 @@ export class AppComponent  {
     .subscribe(
         data => {
             let csvToRowArray = data.split("\n");
-            for (let index = 1; index < csvToRowArray.length; index++) {
+            for (let index = 1; index < csvToRowArray.length - 1; index++) {
               let row = csvToRowArray[index].split(",");
-              this.userArray.push(new User( parseInt( row[0], 10), row[1], row[2]));
+              this.userArray.push(new User( parseInt( row[0], 10), row[1], row[2].trim()));
             }
             console.log(this.userArray);
         },
